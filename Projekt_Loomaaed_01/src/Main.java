@@ -15,11 +15,15 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Proj_02 extends Application {
+public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
     }
+
+//  http://docs.oracle.com/javase/8/javafx/layout-tutorial/builtin_layouts.htm#JFXLY102
+
+// http://i200.itcollege.ee/
 
     @Override
     public void start(Stage primaryStage) {
