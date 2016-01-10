@@ -3,10 +3,9 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -15,6 +14,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -22,6 +26,7 @@ public class Main extends Application {
     }
 
 //  http://docs.oracle.com/javase/8/javafx/layout-tutorial/builtin_layouts.htm#JFXLY102
+//  https://docs.oracle.com/javafx/2/ui_controls/hyperlink.htm
 
 // http://i200.itcollege.ee/
 
@@ -69,9 +74,53 @@ public class Main extends Application {
 
 
 
+//        https://en.wikipedia.org/wiki/Lion
+//        https://en.wikipedia.org/wiki/Lion#/media/File:Lion_waiting_in_Namibia.jpg
+
         GridPane lionLayout = new GridPane();
         Scene lionScene = new Scene(lionLayout);
-        Label lionInfo = new Label();
+        Hyperlink lionLink = new Hyperlink("https://en.wikipedia.org/wiki/Lion");
+//        lionLink.setOnAction();
+        Label lionInfo = new Label("The lion (Panthera leo) is one of the five big cats in the genus Panthera and a member of the family Felidae. " +
+                "\n" +
+                "The commonly used term African lion collectively denotes the several subspecies found in Africa. With some males exceeding 250 kg (550 lb) " +
+                "\n" +
+                "in weight,[4] it is the second-largest living cat after the tiger. Wild lions currently exist in sub-Saharan Africa and in Asia (where an endangered " +
+                "\n" +
+                "remnant population resides in Gir Forest National Park in India) while other types of lions have disappeared from North Africa and Southwest Asia in " +
+                "\n" +
+                "historic times. \n  Until the late Pleistocene, about 10,000 years ago, the lion was the most widespread large land mammal after humans. They were found " +
+                "\n" +
+                "in most of Africa, across Eurasia from western Europe to India, and in the Americas from the Yukon to Peru.[5] The lion is a vulnerable species, having" +
+                "\n" +
+                " seen a major population decline in its African range of 30–50% per two decades during the second half of the twentieth century.[2] Lion populations are " +
+                "\n" +
+                "untenable outside designated reserves and national parks. Although the cause of the decline is not fully understood, habitat loss and conflicts with humans" +
+                "\n" +
+                " are currently the greatest causes of concern. Within Africa, the West African lion population is particularly endangered. \n" +
+                "\n" +
+                "In the wild, males seldom live longer than 10 to 14 years, as injuries sustained from continual fighting with rival males greatly " +
+                "\n" +
+                "reduce their longevity.[6] In captivity they can live more than 20 years. They typically inhabit savanna and grassland, although they" +
+                "\n" +
+                " may take to bush and forest. Lions are unusually social compared to other cats. A pride of lions consists of related females and offspring " +
+                "\n" +
+                "and a small number of adult males. Groups of female lions typically hunt together, preying mostly on large ungulates. Lions are apex and keystone " +
+                "\n" +
+                "predators, although they are also expert scavengers obtaining over 50 percent of their food by scavenging as opportunity allows. While lions do not " +
+                "\n" +
+                "typically hunt humans, some have. Sleeping mainly during the day, lions are active primarily at night (nocturnal), although sometimes at twilight (crepuscular).[7][8]\n" +
+                "\n" +
+                "Highly distinctive, the male lion is easily recognised by its mane, and its face is one of the most widely recognised animal symbols in human culture." +
+                "\n" +
+                " Depictions have existed from the Upper Paleolithic period, with carvings and paintings from the Lascaux and Chauvet Caves, through virtually all ancient and" +
+                "\n" +
+                " medieval cultures where they once occurred. It has been extensively depicted in sculptures, in paintings, on national flags, and in contemporary films and" +
+                "\n" +
+                " literature. Lions have been kept in menageries since the time of the Roman Empire, and have been a key species sought for exhibition in zoos over the world " +
+                "\n" +
+                "since the late eighteenth century. Zoos are cooperating worldwide in breeding programs for the endangered Asiatic subspecies.");
+
         Image lionImage = new Image(getClass().getResourceAsStream("Lion_waiting_in_Namibia.jpg"));
 
         ImageView lion = new ImageView();
@@ -79,13 +128,25 @@ public class Main extends Application {
         lion.setFitWidth(800);
         lion.setFitHeight(600);
         lion.setPreserveRatio(true);
-        lionLayout.setPadding(new Insets(20, 20, 20, 20));
+        lionLayout.setPadding(new Insets(0, 20, 20, 20));
 
+        lionLink.setOnAction(event2 -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://en.wikipedia.org/wiki/Lion"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        });
+
+        lionLayout.add(lionLink, 2, 0);
         lionLayout.add(lionInfo, 2, 1);
         lionLayout.add(lion, 2, 2);
 
 
        // https://en.wikipedia.org/wiki/Tiger
+        https://en.wikipedia.org/wiki/Tiger#/media/File:Tigress_at_Jim_Corbett_National_Park.jpg
 ;
 
 
@@ -93,6 +154,8 @@ public class Main extends Application {
 //       s1.setLayoutX(ti);
 //        s1.setMinHeight(600);
         Scene tigerScene = new Scene(tigerLayout);
+        Hyperlink tigerLink = new Hyperlink("https://en.wikipedia.org/wiki/Tiger");
+
         Label tigerInfo = new Label("The tiger (Panthera tigris) is the " +
 
                 "largest cat species, reaching a total body length of up to " +
@@ -137,21 +200,32 @@ public class Main extends Application {
         tiger.setFitWidth(800);
         tiger.setFitHeight(600);
         tiger.setPreserveRatio(true);
-        tigerLayout.setPadding(new Insets(20, 20, 20, 20));
+        tigerLayout.setPadding(new Insets(0, 20, 20, 20));
 
+        tigerLink.setOnAction(event2 -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://en.wikipedia.org/wiki/Tiger"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        });
+
+        tigerLayout.add(tigerLink, 2, 0);
         tigerLayout.add(tigerInfo, 2, 1);
         tigerLayout.add(tiger, 2, 2);
 
 
         //Tagasi algusesse
 
-        Button nupp2 = new Button("Tagasi");
-        Button nupp3 = new Button("Tagasi");
-        lionLayout.add(nupp2, 1, 1);
-        tigerLayout.add(nupp3, 0, 0);
+        Button bButton2 = new Button("Back");
+        Button bButton3 = new Button("Back");
+        lionLayout.add(bButton2, 0, 0);
+        tigerLayout.add(bButton3, 0, 0);
 
-        nupp2.setOnAction(event1 -> primaryStage.setScene(scene));
-        nupp3.setOnAction(event1 -> primaryStage.setScene(scene));
+        bButton2.setOnAction(event1 -> primaryStage.setScene(scene));
+        bButton3.setOnAction(event1 -> primaryStage.setScene(scene));
 
 
 
