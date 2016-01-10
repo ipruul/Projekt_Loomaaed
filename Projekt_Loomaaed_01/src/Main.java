@@ -40,14 +40,18 @@ public class Main extends Application {
 //        ScrollBar s1 = new ScrollBar();
 
 
-        Button Lion = new Button("Lion");
-        layout.add(Lion, 1, 3);
+        Label teade2 = new Label("Class project: Zoo");
+        layout.add(teade2, 1, 0);
 
         Button Tiger = new Button("Tiger");
         layout.add(Tiger, 1, 1);
 
-        Label teade2 = new Label("Class project: Zoo");
-        layout.add(teade2, 1, 0);
+        Button Hippo = new Button("Hippo");
+        layout.add(Hippo, 1, 2);
+
+        Button Lion = new Button("Lion");
+        layout.add(Lion, 1, 3);
+
 //        layout.getChildren().addAll(nupp, teade, teade2);
 
         //Stseeni muutus
@@ -76,6 +80,9 @@ public class Main extends Application {
         https://en.wikipedia.org/wiki/Tiger#/media/File:Tigress_at_Jim_Corbett_National_Park.jpg
 ;
 
+        Hippo hippo1 = new Hippo().invoke();
+        GridPane hippoLayout = hippo1.getHippoLayout();
+        Scene hippoScene = hippo1.getHippoScene();
 
         Tiger tiger1 = new Tiger().invoke();
         GridPane tigerLayout = tiger1.getTigerLayout();
@@ -86,12 +93,15 @@ public class Main extends Application {
 
         Button bButton2 = new Button("Back");
         Button bButton3 = new Button("Back");
+        Button bButton4 = new Button("Back");
+
         lionLayout.add(bButton2, 0, 0);
         tigerLayout.add(bButton3, 0, 0);
+        hippoLayout.add(bButton4, 0, 0);
 
         bButton2.setOnAction(event1 -> primaryStage.setScene(scene));
         bButton3.setOnAction(event1 -> primaryStage.setScene(scene));
-
+        bButton4.setOnAction(event1 -> primaryStage.setScene(scene));
 
 
 //        seesLayout.getChildren().addAll(seesLabel, nupp2);
@@ -99,6 +109,8 @@ public class Main extends Application {
         // nupu tegevus
         Lion.setOnAction(event -> primaryStage.setScene(lionScene));
         Tiger.setOnAction(event -> primaryStage.setScene(tigerScene));
+        Hippo.setOnAction(event -> primaryStage.setScene(hippoScene));
+
 
 
 

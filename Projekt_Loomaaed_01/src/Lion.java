@@ -43,7 +43,7 @@ public class Lion {
                 "\n" +
                 "in most of Africa, across Eurasia from western Europe to India, and in the Americas from the Yukon to Peru.[5] The lion is a vulnerable species, having" +
                 "\n" +
-                " seen a major population decline in its African range of 30–50% per two decades during the second half of the twentieth century.[2] Lion populations are " +
+                " seen a major population decline in its African range of 30-50% per two decades during the second half of the twentieth century.[2] Lion populations are " +
                 "\n" +
                 "untenable outside designated reserves and national parks. Although the cause of the decline is not fully understood, habitat loss and conflicts with humans" +
                 "\n" +
